@@ -16,7 +16,6 @@ header {
 
 main {
     margin-top: 4em;
-    text-align: center;
     display: flex;
     flex-direction: column;
     height: calc(100% - 3em);
@@ -49,10 +48,9 @@ main {
     cursor: pointer;
 }
 
-
-
-
-
+.main-text {
+    text-align: center;
+}
 
 ::-webkit-scrollbar {
     width: 1em; /* ширина для вертикального скролла */
