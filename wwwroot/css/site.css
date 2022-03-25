@@ -1,4 +1,39 @@
-﻿body {
-    background-color: #171717;
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background-color: #1e1e1e;
     color: #e6e6e6;
 }
+
+header {
+    height: 3em;
+    border-bottom: 1px solid #646464;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 3em);
+}
+
+.footer {
+    background-color: #4d4d4d;
+    padding: 3rem 1rem 3rem;
+}
+
+
+::-webkit-scrollbar {
+    width: 1em; /* ширина для вертикального скролла */
+    height: 1em; /* высота для горизонтального скролла */
+    background-color: #2e2e2e;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #4d4d4d;
+}
+
