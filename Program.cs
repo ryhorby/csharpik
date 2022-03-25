@@ -1,15 +1,16 @@
+using csharpik.Data.BookProjectData;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 //DbSet
-//string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
-
-//Repositories
-//builder.Services.AddScoped<BookRepository>();
-//builder.Services.AddScoped<BookKeeperRepository>();
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<BookProjectContext>(
+    options => options.UseSqlServer(connectionString)
+    );
 
 var app = builder.Build();
 

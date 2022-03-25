@@ -1,4 +1,65 @@
-﻿body {
-    background-color: #171717;
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background-color: #1e1e1e;
     color: #e6e6e6;
 }
+
+header {
+    height: 3em;
+    border-bottom: 1px solid #646464;
+}
+
+main {
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 3em);
+}
+
+.footer {
+    background-color: #4d4d4d;
+    padding: 2rem 1rem 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 20px;
+    margin-left: 2em;
+    margin-top: 0.5em;
+    display: inline-block;
+}
+
+.nav-link-list {
+    align-items: stretch;
+    display: flex;
+}
+
+.nav-link-list-li {
+    list-style-type: none;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
+.main-text {
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 1em; /* ширина для вертикального скролла */
+    height: 1em; /* высота для горизонтального скролла */
+    background-color: #2e2e2e;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #4d4d4d;
+}
+

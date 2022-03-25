@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+    <link rel="icon" href="~/favicon.png" />
 </head>
 <body>
     <header>
+        <ul class="nav-link-list">
+            <li class="nav-link-list-li"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="nav-link-list-li"><a class="nav-link" asp-controller="Book" asp-action="Index">Books</a></li>
+            <li class="nav-link-list-li"><a class="nav-link" asp-controller="Privacy" asp-action="Index">Privacy</a></li>
+        </ul>
     </header>
-        <main>
-            @RenderBody()
-        </main>
-    <footer>
+    <main>
+        @RenderBody()
+    </main>
+    <footer class= "footer">
+        &copy;ryhor.by
     </footer>
     <script src="~/js/sitescripts.js" asp-append-version="true"></script>
 </body>
