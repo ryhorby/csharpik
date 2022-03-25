@@ -1,6 +1,7 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    font-family: RedHat;
 }
 
 html, body {
@@ -63,3 +64,9 @@ main {
     background-color: #4d4d4d;
 }
 
+@font-face {
+    font-family: "RedHat";
+    src: url("../fonts/RedHatMono-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
