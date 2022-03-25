@@ -19,12 +19,18 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 3em);
+    height: calc(100% - 3em - 4em);
 }
 
 .footer {
-    background-color: #4d4d4d;
-    padding: 2rem 1rem 2rem;
+    height: 3em;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.footer-powered-text {
+    text-align: right;
+    margin-left: 0.5em;
+    font-size: 1em;
 }
 
 .nav-link {
@@ -49,11 +55,16 @@ main {
     cursor: pointer;
 }
 
-.main-text {
+/*Developin messege*/
+.home-development-message {
+    margin-top: 2em;
     text-align: center;
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
 
+/*Search form*/
 .search-form {
     position: relative;
     width: 300px;
@@ -88,13 +99,7 @@ main {
 }
 
 
-
-
-
-
-
-
-/*Удаление крестика*/
+/*Delete cross on search panel*/
 input[type=text]::-ms-clear {
     display: none;
     width: 0;
@@ -114,17 +119,19 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+
+/* scroll panel */
 ::-webkit-scrollbar {
-    width: 1em; /* ширина для вертикального скролла */
-    height: 1em; /* высота для горизонтального скролла */
+    width: 1em; 
+    height: 1em;
     background-color: #2e2e2e;
 }
 
-/* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
     background-color: #4d4d4d;
 }
 
+/*add fonts*/
 @font-face {
     font-family: "RedHat";
     src: url("../fonts/RedHatMono-Light.ttf") format("truetype");
