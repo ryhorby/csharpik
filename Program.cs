@@ -8,11 +8,9 @@ builder.Services.AddControllersWithViews();
 
 //DbSet
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<BookProjectContext>(options => options.UseSqlServer(connectionString));
-
-//Repositories
-//builder.Services.AddScoped<BookRepository>();
-//builder.Services.AddScoped<BookKeeperRepository>();
+builder.Services.AddDbContext<BookProjectContext>(
+    options => options.UseSqlServer(connectionString)
+    );
 
 var app = builder.Build();
 

@@ -20,6 +20,6 @@ namespace csharpik.Models.BookProject
         public int? AuthorId { get; set; }
         public Author Author { get; set; }
 
-        public BookUrlKeeper UrlKeeper { get; set; }
+        public BookNameKeeper UrlKeeper { get; set; }
     }
 }
