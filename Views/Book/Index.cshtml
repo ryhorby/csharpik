@@ -1,1 +1,9 @@
-﻿<h1 class="main-text">Book page!</h1>
+﻿@{
+    ViewData["Title"] = "Books";
+}
+
+<form class = "search-form" asp-controller="" asp-action="" method="get">
+
+    <input class="search-input" type="search" placeholder="Book or author name" name="query" value="" autocomplete="off"/> 
+    <button class= "search-button" type="submit"><img src="~/search.png"></button>
+</form>

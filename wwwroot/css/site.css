@@ -1,6 +1,8 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    font-family: RedHat;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -15,7 +17,6 @@ header {
 }
 
 main {
-    margin-top: 4em;
     display: flex;
     flex-direction: column;
     height: calc(100% - 3em);
@@ -52,6 +53,67 @@ main {
     text-align: center;
 }
 
+
+.search-form {
+    position: relative;
+    width: 300px;
+    margin: 1em auto;
+    background: none;
+    border-bottom: 1px solid #646464;
+}
+
+.search-input, .search-button {
+    color: #e6e6e6;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.search-input {
+    width: 100%;
+    height: 42px;
+    padding-left: 15px;
+}
+
+.search-button {
+    top: 7px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.search-input .search-form::-ms-clear {
+    display: none;
+}
+
+
+
+
+
+
+
+
+/*Удаление крестика*/
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=text]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
 ::-webkit-scrollbar {
     width: 1em; /* ширина для вертикального скролла */
     height: 1em; /* высота для горизонтального скролла */
@@ -63,3 +125,9 @@ main {
     background-color: #4d4d4d;
 }
 
+@font-face {
+    font-family: "RedHat";
+    src: url("../fonts/RedHatMono-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
