@@ -25,6 +25,19 @@ main {
     padding: 3rem 1rem 3rem;
 }
 
+.nav-link {
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 20px;
+    margin-left: 2em;
+    margin-top: 0.5em;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
 
 ::-webkit-scrollbar {
     width: 1em; /* ширина для вертикального скролла */
