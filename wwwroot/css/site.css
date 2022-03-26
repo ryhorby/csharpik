@@ -98,6 +98,13 @@ main {
     display: none;
 }
 
+/*Book wasn`t found in database message*/
+.text-book-wasnt-found {
+    margin-top: 2em;
+    text-align: center;
+    margin-right: 1em;
+    margin-left: 1em;
+}
 
 /*Delete cross on search panel*/
 input[type=text]::-ms-clear {
