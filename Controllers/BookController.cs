@@ -16,5 +16,10 @@ namespace csharpik.Controllers
         {
             return View(service.GetAll());
         }
+
+        public IActionResult Search(string query)
+        {
+            return View(service.GetAllByQuery(query));
+        }
     }
 }
