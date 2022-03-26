@@ -15,11 +15,11 @@
     </div>
 }
 else{
-    <ul class ="book-list">
-        @foreach(Book book in Model)
-        {
-            <li class="book-title-li">@book.Title</li>
-            <li class="book-description-li">@book.Description</li>
-        }
-    </ul>
+    @foreach(Book book in Model)
+    {
+        <ul class ="book-list">
+            <li class="book-title-li"><span class="book-li-text">Book: </span><a href = "">@book.Title</a></li>
+            <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
+        </ul>
+    } 
 }
