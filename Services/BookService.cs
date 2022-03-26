@@ -10,10 +10,12 @@ namespace csharpik.Services
     public class BookService
     {
         private readonly BookRepository bookRepository;
+        private readonly IWebHostEnvironment environment;
 
-        public BookService(BookRepository bookRepository)
+        public BookService(BookRepository bookRepository, IWebHostEnvironment environment)
         {
             this.bookRepository = bookRepository;
+            this.environment = environment;
         }
 
         public List<Book> GetAllByQuery(string query)
@@ -38,6 +40,32 @@ namespace csharpik.Services
         public List<Book> GetAll()
         {
             return bookRepository.GetAll();
+        }
+
+        public DescriptionModel GetDescription(int id)
+        {
+            try
+            {
+                DescriptionModel descriptionModel = new DescriptionModel();
+                descriptionModel.Book = bookRepository.GetBookById(id);
+                descriptionModel.BookAuthor = bookRepository.GetAuthorByBookId(id);
+                descriptionModel.Keeper = bookRepository.GetBookKeeperByBookId(id);
+
+                return descriptionModel;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+
+                return new DescriptionModel();
+            }
+        }
+
+        public string GetBookPdfPass(string pass)
+        {
+            string bookPdfPass = environment.ContentRootPath + pass;
+            
+            return bookPdfPass;
         }
     }
 }
