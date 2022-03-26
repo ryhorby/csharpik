@@ -71,9 +71,28 @@ namespace csharpik.Repositories
 
         public Book GetBookById(int id)
         {
-
             return Context.Books.Single(b => b.Id == id);
+        }
 
+        public Author GetAuthorByBookId(int id)
+        {
+            try
+            {
+                Book book = Context.Books.Single(b => b.Id == id);
+
+                return Context.Authors.Single(a => a.Id == book.AuthorId);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+
+                return new Author();
+            }
+        }
+
+        public BookNameKeeper GetBookKeeperByBookId(int id)
+        {
+            return Context.UrlKeepers.Single(a => a.BookId == id);
         }
     }
 }

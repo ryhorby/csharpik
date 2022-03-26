@@ -18,7 +18,7 @@ else{
     @foreach(Book book in Model)
     {
         <ul class ="book-list">
-            <li class="book-title-li"><span class="book-li-text">Book: </span><a href = "">@book.Title</a></li>
+            <li class="book-title-li"><span class="book-li-text">Book: </span><a href = "@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
             <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
         </ul>
     } 

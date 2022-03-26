@@ -11,8 +11,6 @@ namespace csharpik.Models.BookProject
         public string Name { get; set; }
 
         [Required]
-        public string Surname { get; set; }
-
-        public List<Book> Books { get; set; } 
+        public string Biography { get; set; }
     }
 }

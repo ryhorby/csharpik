@@ -18,8 +18,6 @@ namespace csharpik.Models.BookProject
         public bool IsFree { get; set; }
 
         public int? AuthorId { get; set; }
-        public Author Author { get; set; }
 
-        public BookNameKeeper UrlKeeper { get; set; }
     }
 }

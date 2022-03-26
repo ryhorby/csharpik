@@ -21,5 +21,16 @@ namespace csharpik.Controllers
         {
             return View(service.GetAllByQuery(query));
         }
+
+        public IActionResult GetDescription(int id)
+        {
+            return View(service.GetDescription(id));
+        }
+
+        public IActionResult ReadBook(string pass)
+        {
+            string bookFilePass = service.GetBookPdfPass(pass);
+            return PhysicalFile(bookFilePass, "application/pdf");
+        }
     }
 }

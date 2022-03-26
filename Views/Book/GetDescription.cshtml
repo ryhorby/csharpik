@@ -1,0 +1,34 @@
+﻿@model DescriptionModel;
+
+@if (Model == null)
+{
+    <div class="text-book-wasnt-found">
+        Book Description wasn`t found. Sorry! I will try to add it as soon as possible.<br>
+        If it possible send your steps before to me email <span class="orange-text">ryhor.by@outlook.com</span><br>
+        Thanks a lot!
+    </div>
+}
+else
+{
+
+    <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
+
+    <ul>
+        <li><span class="orange-text">Title: </span>@Model.Book.Title</li>
+        <li><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
+    </ul>
+
+    @if (@Model.Book.IsFree)
+    {
+        <form asp-controller="Book" asp-action="ReadBook" method="get">
+            <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
+            <button type="submit">Read book</button>
+        </form>
+    }
+    else
+    {
+        <p>This book isn`t free, you can buy it on the Internet</p>
+    }
+
+}
+

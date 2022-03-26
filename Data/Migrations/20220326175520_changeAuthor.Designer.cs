@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using csharpik.Data.BookProjectData;
 
@@ -11,9 +12,10 @@ using csharpik.Data.BookProjectData;
 namespace csharpik.Data.Migrations
 {
     [DbContext(typeof(BookProjectContext))]
-    partial class BookProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20220326175520_changeAuthor")]
+    partial class changeAuthor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,6 +69,8 @@ namespace csharpik.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.ToTable("Books");
                 });
 
@@ -91,7 +95,39 @@ namespace csharpik.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookId")
+                        .IsUnique()
+                        .HasFilter("[BookId] IS NOT NULL");
+
                     b.ToTable("UrlKeepers");
+                });
+
+            modelBuilder.Entity("csharpik.Models.BookProject.Book", b =>
+                {
+                    b.HasOne("csharpik.Models.BookProject.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId");
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("csharpik.Models.BookProject.BookNameKeeper", b =>
+                {
+                    b.HasOne("csharpik.Models.BookProject.Book", "Book")
+                        .WithOne("UrlKeeper")
+                        .HasForeignKey("csharpik.Models.BookProject.BookNameKeeper", "BookId");
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("csharpik.Models.BookProject.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("csharpik.Models.BookProject.Book", b =>
+                {
+                    b.Navigation("UrlKeeper");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,6 +14,5 @@ namespace csharpik.Models.BookProject
         public string PictureFileName { get; set; }
 
         public int? BookId { get; set; }
-        public Book Book { get; set; }
     }
 }
