@@ -4,24 +4,26 @@
     ViewData["Title"] = "Books";
 }
 
-<form class = "search-form" asp-controller="Book" asp-action="Search" method="get">
-    <input class="search-input" type="search" placeholder="Book or author name" name="query" value="" autocomplete="off"/> 
-    <button class= "search-button" type="submit"><img src="~/search.png"></button>
+<form class="search-form" asp-controller="Book" asp-action="Search" method="get">
+    <input class="search-input" type="search" placeholder="Book or author name" name="query" value="" autocomplete="off" />
+    <button class="search-button" type="submit"><img src="~/search.png"></button>
 </form>
 
-@if(Model.Count == 0){
+@if (Model.Count == 0)
+{
     <div class="text-book-wasnt-found">
         Books weren`t found. Please send print screen on my email <span class="orange-text">ryhor.by@outlook.com</span> to help me<br>
         And it will be nice if you say me, how you face with it. Short discribe your steps before catch this bug<br>
         Thanks a lot!
     </div>
 }
-else{
-    @foreach(Book book in Model)
+else
+{
+    @foreach (Book book in Model)
     {
-        <ul class ="book-list">
-            <li class="book-title-li"><span class="book-li-text">Book: </span><a href = "@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
-            <li class="book-description-li"><span class="book-li-text">Description: </span> @book.Description</li>
+        <ul class="book-list">
+            <li class="book-title-li"><span class="book-li-text">Book: </span><a href="@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
+            <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
         </ul>
-    } 
+    }
 }

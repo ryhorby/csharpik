@@ -27,6 +27,17 @@ namespace csharpik.Services
                 books.AddRange(bookRepository.GetAllBookByAuthor(query));
                 books.AddRange(bookRepository.GetAllBookByTitle(query));
 
+                List<int> bookIds = new List<int>();
+                int quantityOfIteration = books.Count;
+
+                for (int i = 0; i < quantityOfIteration; i++)
+                {
+                    if (bookIds.Contains(books[i].Id))
+                        books.Remove(books[i]);
+                    else
+                        bookIds.Add(books[i].Id);
+                }
+
                 return books;
             }
             catch (Exception ex)

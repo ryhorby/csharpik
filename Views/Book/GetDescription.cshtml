@@ -10,25 +10,25 @@
 }
 else
 {
+    <div>
+        <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
 
-    <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
+        <ul>
+            <li><span class="orange-text">Title: </span>@Model.Book.Title</li>
+            <li><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
+        </ul>
 
-    <ul>
-        <li><span class="orange-text">Title: </span>@Model.Book.Title</li>
-        <li><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
-    </ul>
-
-    @if (@Model.Book.IsFree)
-    {
-        <form asp-controller="Book" asp-action="ReadBook" method="get">
-            <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
-            <button type="submit">Read book</button>
-        </form>
-    }
-    else
-    {
-        <p>This book isn`t free, you can buy it on the Internet</p>
-    }
-
+        @if (@Model.Book.IsFree)
+        {
+            <form asp-controller="Book" asp-action="ReadBook" method="get">
+                <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
+                <button type="submit">Read book</button>
+            </form>
+        }
+        else
+        {
+            <p>This book isn`t free, you can buy it on the Internet</p>
+        }
+    </div>
 }
 

@@ -24,7 +24,7 @@ main {
     max-height: fit-content;
 }
 
-a {
+a{
     color: inherit;
     text-decoration: none;
 }
@@ -87,6 +87,14 @@ button:hover {
 .nav-link-list {
     align-items: stretch;
     display: flex;
+}
+
+#a-orange{
+    color: darkorange;
+}
+
+#a-orange:hover {
+    text-decoration: none;
 }
 
 .nav-link-list-li {
