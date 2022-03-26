@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Book>;
+
+@{
     ViewData["Title"] = "Books";
 }
 
@@ -7,3 +9,20 @@
     <input class="search-input" type="search" placeholder="Book or author name" name="query" value="" autocomplete="off"/> 
     <button class= "search-button" type="submit"><img src="~/search.png"></button>
 </form>
+
+@if(Model.Count == 0){
+    <div class="text-book-wasn`t-found">
+        No one book wasn`t found. Please send print screen on my email to help me<br>
+        And it will be nice if you say me, how you face with it. Short discribe your steps before<br>
+        Thanks a lot!
+    </div>
+}
+else{
+    <ul class ="book-list">
+        @foreach(Book book in Model)
+        {
+            <li class="book-title-li">@book.Title</li>
+            <li class="book-description-li">@book.Description</li>
+        }
+    </ul>
+}

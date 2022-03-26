@@ -1,4 +1,6 @@
 using csharpik.Data.BookProjectData;
+using csharpik.Repositories;
+using csharpik.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<BookProjectContext>(
     options => options.UseSqlServer(connectionString)
     );
+
+builder.Services.AddScoped<BookRepository>();
+builder.Services.AddScoped<BookService>();
 
 var app = builder.Build();
 
