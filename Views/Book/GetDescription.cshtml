@@ -23,7 +23,7 @@ else
         {
             <form asp-controller="Book" asp-action="ReadBook" method="get">
                 <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
-                <button type="submit">Read book</button>
+                <button class="a-orange read-book-button"type="submit">Read book</button>
             </form>
         }
         else
