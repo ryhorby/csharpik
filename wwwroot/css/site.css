@@ -31,8 +31,10 @@ a{
 
 a:hover {
     color: inherit;
-    text-decoration: underline;
+    border-bottom: 1px #e6e6e6 solid
 }
+
+
 
 button {
     padding: 0;
@@ -60,20 +62,16 @@ button:hover {
     color: darkorange;
 }
 
+
+.div-description{
+    text-align: center;
+}
 .description-picture {
-    width: 20em; 
-    float: left; 
+    width: 20em;
+    float: left;
     margin: 1.5em;
 }
 
-@media only screen and (max-width: 650px) {
-    .nav-link-list {
-        width: fit-content;
-        margin: 0 auto;
-        align-items: stretch;
-        display: flex;
-    }
-}
 .nav-link {
     text-decoration: none;
     color: #e6e6e6;
@@ -89,12 +87,13 @@ button:hover {
     display: flex;
 }
 
-#a-orange{
+.a-orange{
     color: darkorange;
 }
 
-#a-orange:hover {
-    text-decoration: none;
+.a-orange:hover {
+    color: darkorange;
+    text-decoration-color: #e6e6e6;
 }
 
 .nav-link-list-li {
@@ -200,10 +199,39 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: #4d4d4d;
 }
 
+::selection {
+    color: #e6e6e6;
+    background-color: darkorange;
+}
+
+::-moz-selection {
+    color: #e6e6e6;
+    background-color: darkorange;
+}
+
+
+.orange-text::selection {
+    color: #e6e6e6;
+    background-color: darkorange;
+}
+
+.orange-text::-moz-selection {
+    color: #e6e6e6;
+    background-color: darkorange;
+}
+
 /*add fonts*/
 @font-face {
     font-family: "RedHat";
     src: url("../fonts/RedHatMono-Light.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
+}
+@media only screen and (max-width: 650px) {
+    .nav-link-list {
+        width: fit-content;
+        margin: 0 auto;
+        align-items: stretch;
+        display: flex;
+    }
 }

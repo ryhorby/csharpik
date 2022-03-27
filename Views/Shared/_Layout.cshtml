@@ -19,9 +19,9 @@
         @RenderBody()
     </main>
     <footer class= "footer">
-        <div class="footer-powered-text">Powered by <a href="https://github.com/ryhorby" id="a-orange">ryhor.by</a></div>
+        <div class="footer-powered-text">Powered by <a href="https://github.com/ryhorby" class="a-orange">ryhor.by</a></div>
     </footer>
-    <script src="~/js/sitescripts.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("View");
 </body>
 </html>
 
