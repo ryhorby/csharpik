@@ -34,7 +34,10 @@ a:hover {
     border-bottom: 1px #e6e6e6 solid
 }
 
-
+.ul-description {
+    text-align: left;
+    list-style-type: none;
+}
 
 button {
     padding: 0;
