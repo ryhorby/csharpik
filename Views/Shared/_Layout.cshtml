@@ -10,10 +10,11 @@
 <body>
     <header>
         <ul class="nav-link-list">
-            <li class="nav-link-list-li"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-            <li class="nav-link-list-li"><a class="nav-link" asp-controller="Book" asp-action="Index">Books</a></li>
+            <li class="nav-link-list-li"><a class="nav-link" id="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="nav-link-list-li"><a class="nav-link" id="Book" asp-controller="Book" asp-action="Index">Books</a></li>
             <li class="nav-link-list-li"><a class="nav-link" href="https://www.paypal.com/donate/?hosted_button_id=GLQTCL5N8T2SG">Donate</a></li>
         </ul>
+        <script src="~/js/script.js"></script>
     </header>
     <main>
         @RenderBody()
@@ -21,7 +22,5 @@
     <footer class= "footer">
         <div class="footer-powered-text">Powered by <a href="https://github.com/ryhorby" class="a-orange">ryhor.by</a></div>
     </footer>
-    @await Component.InvokeAsync("View");
 </body>
 </html>
-

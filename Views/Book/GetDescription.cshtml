@@ -14,15 +14,16 @@ else
         <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
 
         <ul class="ul-description">
-            <li><span class="orange-text">Title: </span>@Model.Book.Title</li>
-            <li><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
+            <li class="li-description"><span class="orange-text">Title: </span>@Model.Book.Title</li>
+            <li class="li-description"><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
+            <li class="li-description"><span class="orange-text">Description: </span>@Model.Book.Description</li>
         </ul>
 
         @if (@Model.Book.IsFree)
         {
             <form asp-controller="Book" asp-action="ReadBook" method="get">
                 <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
-                <button type="submit">Read book</button>
+                <button class="a-orange read-book-button"type="submit">Read book</button>
             </form>
         }
         else

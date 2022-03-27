@@ -34,7 +34,11 @@ a:hover {
     border-bottom: 1px #e6e6e6 solid
 }
 
-
+.ul-description {
+    text-align: left;
+    margin-top: 1.5em;
+    list-style-type: none;
+}
 
 button {
     padding: 0;
@@ -72,9 +76,16 @@ button:hover {
     margin: 1.5em;
 }
 
+.current-page{
+    color: darkorange;
+}
+
+.current-page:hover{
+    color: darkorange;
+}
+
 .nav-link {
     text-decoration: none;
-    color: #e6e6e6;
     font-size: 20px;
     margin-left: 1em;
     margin-right: 1em;
@@ -93,7 +104,16 @@ button:hover {
 
 .a-orange:hover {
     color: darkorange;
-    text-decoration-color: #e6e6e6;
+}
+
+.read-book-button {
+    float: left;
+    margin-top: 1em;
+}
+
+.read-book-button:hover {
+    text-decoration: none;
+    border-bottom: 1px #e6e6e6 solid
 }
 
 .nav-link-list-li {
@@ -148,7 +168,7 @@ button:hover {
 }
 
 .book-list {
-    margin-top: 1em;
+    margin-top: 2em;
     list-style-type: none;
     text-align: left;
     margin-left: auto;
@@ -158,6 +178,13 @@ button:hover {
 
 .book-li-text {
     color: darkorange;
+}
+
+.book-not-free-message{
+    text-align: left;
+    margin-top: 2em;
+    color: darkorange;
+    margin-left: 1em;
 }
 /*Book wasn`t found in database message*/
 .text-book-wasnt-found {
@@ -233,5 +260,33 @@ input[type="search"]::-webkit-search-results-decoration {
         margin: 0 auto;
         align-items: stretch;
         display: flex;
+    }
+
+    .book-list {
+        margin-top: 1em;
+        list-style-type: none;
+        text-align: left;
+        margin-left: 2em;
+        margin-right: 2em;
+        max-width: 30em;
+    }
+
+    .description-picture {
+        float: none;
+    }
+
+    .ul-description {
+        text-align: left;
+        margin-top: 1.5em;
+        margin-left: 2em;
+        margin-right: 2em;
+        list-style-type: none;
+    }
+    .book-not-free-message {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .read-book-button {
+        margin-left: 2em;
     }
 }
