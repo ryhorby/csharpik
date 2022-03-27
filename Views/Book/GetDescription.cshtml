@@ -10,10 +10,10 @@
 }
 else
 {
-    <div>
+    <div class="div-description">
         <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
 
-        <ul>
+        <ul class="ul-description">
             <li><span class="orange-text">Title: </span>@Model.Book.Title</li>
             <li><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
         </ul>
@@ -27,8 +27,7 @@ else
         }
         else
         {
-            <p>This book isn`t free, you can buy it on the Internet</p>
+            <p class="book-not-free-message">This book isn`t free, you can buy it on the Internet</p>
         }
     </div>
 }
-
