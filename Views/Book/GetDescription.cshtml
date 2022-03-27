@@ -1,10 +1,10 @@
 ﻿@model DescriptionModel;
 
-@if (Model == null)
+@if (@Model == null)
 {
     <div class="text-book-wasnt-found">
-        Book Description wasn`t found. Sorry! I will try to add it as soon as possible.<br>
-        If it possible send your steps before to me email <span class="orange-text">ryhor.by@outlook.com</span><br>
+        Book Description wasn`t found. Sorry!<br>
+        If it possible send me your steps before face with it on email <a href="mailto:ryhor.by@outlook.com" class="a-orange">ryhor.by@outlook.com</a><br>
         Thanks a lot!
     </div>
 }
@@ -14,12 +14,25 @@ else
         <img src="/books/pictures/@Model.Keeper.PictureFileName" class="description-picture">
 
         <ul class="ul-description">
-            <li class="li-description"><span class="orange-text">Title: </span>@Model.Book.Title</li>
-            <li class="li-description"><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
-            <li class="li-description"><span class="orange-text">Description: </span>@Model.Book.Description</li>
+            
+            @if(@Model.Book.Title != null){
+                <li class="li-description"><span class="orange-text">Title: </span>@Model.Book.Title</li>
+            }
+            
+            
+            @if(@Model.BookAuthor.Name != null)
+            {
+                 <li class="li-description"><span class="orange-text">Author: </span>@Model.BookAuthor.Name</li>
+            }
+           
+            
+            @if(@Model.Book.Description != null)
+            {
+                <li class="li-description"><span class="orange-text">Description: </span>@Model.Book.Description</li>
+            }
         </ul>
 
-        @if (@Model.Book.IsFree)
+        @if (@Model.Book.IsFree && @Model.Keeper.PdfFileName != null)
         {
             <form asp-controller="Book" asp-action="ReadBook" method="get">
                 <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">

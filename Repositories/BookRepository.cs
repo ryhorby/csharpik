@@ -15,59 +15,33 @@ namespace csharpik.Repositories
 
         public List<Book> GetAllBookByTitle(string title)
         {
-            try
-            {
-                List<Book> books = Context.Books.Where(book => book.Title.Contains(title)).ToList();
+            List<Book> books = Context.Books.Where(book => book.Title.Contains(title)).ToList();
 
-                return books;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
+            return books;
 
-                return new List<Book>();
-            }
         }
 
         public List<Book> GetAllBookByAuthor(string authorName)
         {
-            try
-            {
-                List<Author> authors = Context.Authors.Where(author => author.Name.Contains(authorName)).ToList();
-                List<Book> books = new List<Book>();
 
-                if (authors.Count == 0)
-                    return books;
-                
+            List<Author> authors = Context.Authors.Where(author => author.Name.Contains(authorName)).ToList();
+            List<Book> books = new List<Book>();
 
-                foreach (Author author in authors)
-                {
-                    books = Context.Books.Where(book => book.AuthorId == author.Id).ToList();
-                }
-
+            if (authors.Count == 0)
                 return books;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
 
-                return new List<Book>();
+            foreach (Author author in authors)
+            {
+                books = Context.Books.Where(book => book.AuthorId == author.Id).ToList();
             }
+
+            return books;
         }
 
         public List<Book> GetAll()
         {
-            try
-            {
-                return Context.Books.ToList();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-
-                return new List<Book>();
-            }
-        } 
+            return Context.Books.ToList();
+        }
 
         public Book GetBookById(int id)
         {
@@ -76,18 +50,10 @@ namespace csharpik.Repositories
 
         public Author GetAuthorByBookId(int id)
         {
-            try
-            {
-                Book book = Context.Books.Single(b => b.Id == id);
+            Book book = Context.Books.Single(b => b.Id == id);
 
-                return Context.Authors.Single(a => a.Id == book.AuthorId);
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex);
+            return Context.Authors.Single(a => a.Id == book.AuthorId);
 
-                return new Author();
-            }
         }
 
         public BookNameKeeper GetBookKeeperByBookId(int id)

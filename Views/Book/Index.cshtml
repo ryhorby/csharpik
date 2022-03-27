@@ -12,8 +12,8 @@
 @if (Model.Count == 0)
 {
     <div class="text-book-wasnt-found">
-        Books weren`t found. Please send print screen on my email <span class="orange-text">ryhor.by@outlook.com</span> to help me<br>
-        And it will be nice if you say me, how you face with it. Short discribe your steps before catch this bug<br>
+        Books weren`t found. Sorry! <br>
+        If it possible send me your steps before face with it on email <a href="mailto:ryhor.by@outlook.com" class="a-orange">ryhor.by@outlook.com</a><br>
         Thanks a lot!
     </div>
 }
@@ -21,9 +21,15 @@ else
 {
     @foreach (Book book in Model)
     {
-        <ul class="book-list">
-            <li class="book-title-li"><span class="book-li-text">Book: </span><a href="@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
-            <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
-        </ul>
+        @if (book.Title != null)
+        {
+            <ul class="book-list">
+                <li class="book-title-li"><span class="book-li-text">Book: </span><a href="@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
+                @if(book.Description != null)
+                {
+                    <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
+                }
+            </ul>   
+        }
     }
 }
