@@ -28,7 +28,14 @@ else
             
             @if(@Model.Book.Description != null)
             {
-                <li class="li-description"><span class="orange-text">Description: </span>@Model.Book.Description</li>
+                <li class="li-description">
+                    <div class="description-title">
+                        <span class="orange-text">Description:</span><br>
+                    </div>
+                    <div class="description-text">
+                        @Model.Book.Description
+                    </div>
+                </li>
             }
         </ul>
 

@@ -23,11 +23,19 @@ else
         {
             <ul class="book-list">
                 <li class="book-title-li"><span class="book-li-text">Book: </span><a href="@Url.Action("GetDescription", "Book", new {id = book.Id})">@book.Title</a></li>
-                @if(book.Description != null)
+
+                @if (book.Description != null)
                 {
-                    <li class="book-description-li"><span class="book-li-text">Description: </span>@book.Description</li>
+                    <li class="li-description">
+                        <div>
+                            <span class="orange-text">Description: </span>
+                        </div>
+                        <div>
+                            @book.Description
+                        </div>
+                    </li>
                 }
-            </ul>   
+            </ul>
         }
     }
 }
