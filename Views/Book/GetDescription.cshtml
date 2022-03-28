@@ -65,7 +65,41 @@ else
             <p class="book-not-free-message">&#9888 This book isn`t free, you can buy it on the Internet</p>
         }
 
-        <button type="button" id="btnInsert" class="read-book-button a-orange">Add to favorite</button>
-
+        <button type="button" id="btn-insert" onclick = "Click()" class="read-book-button a-orange">Add to favorite</button>
     </div>
+
+    //working with localStorage
+    <script type = "text/javascript">
+        
+        function funonload() {
+            const btn = document.getElementById("btn-insert");
+
+            if(localStorage.getItem("book/@Model.Book.Title/@Model.Book.Id") != null){
+                 btn.innerHTML = "Remove from favorite"
+            }
+
+        } 
+
+        window.onload = funonload;
+
+        
+        const inpKey = "book/@Model.Book.Title/@Model.Book.Id";
+        const inpValue = "@Model.Book.Description";
+
+        const btn = document.getElementById("btn-insert");
+
+        function Click(){
+            console.log(btn.innerHTML);
+
+            if(btn.innerHTML == "Add to favorite"){
+                localStorage.setItem(inpKey, inpValue);
+                btn.innerHTML = "Remove from favorite"
+            }
+            else if(btn.innerHTML == "Remove from favorite"){
+                 localStorage.removeItem(inpKey);
+                 btn.innerHTML = "Add to favorite"
+            }
+         }
+
+    </script>
 }
