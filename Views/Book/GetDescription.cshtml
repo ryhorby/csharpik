@@ -5,7 +5,11 @@
 }
 
 <ul class="nav-link-list nav-second-link-list">
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" asp-controller="" asp-action="">Favorite</a></li>
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
+        asp-controller="Book" asp-action="Index" id="Favorite">Search</a></li>
+
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
+        asp-controller="Book" asp-action="FavoriteBooks">Favorite</a></li>
 </ul>
 
 @if (@Model == null)
@@ -60,5 +64,42 @@ else
         {
             <p class="book-not-free-message">&#9888 This book isn`t free, you can buy it on the Internet</p>
         }
+
+        <button type="button" id="btn-insert" onclick = "Click()" class="read-book-button a-orange">Add to favorite</button>
     </div>
+
+    //working with localStorage
+    <script type = "text/javascript">
+        
+        function funonload() {
+            const btn = document.getElementById("btn-insert");
+
+            if(localStorage.getItem("book/@Model.Book.Title/@Model.Book.Id") != null){
+                 btn.innerHTML = "Remove from favorite"
+            }
+
+        } 
+
+        window.onload = funonload;
+
+        
+        const inpKey = "book/@Model.Book.Title/@Model.Book.Id";
+        const inpValue = "@Model.Book.Description";
+
+        const btn = document.getElementById("btn-insert");
+
+        function Click(){
+            console.log(btn.innerHTML);
+
+            if(btn.innerHTML == "Add to favorite"){
+                localStorage.setItem(inpKey, inpValue);
+                btn.innerHTML = "Remove from favorite"
+            }
+            else if(btn.innerHTML == "Remove from favorite"){
+                 localStorage.removeItem(inpKey);
+                 btn.innerHTML = "Add to favorite"
+            }
+         }
+
+    </script>
 }

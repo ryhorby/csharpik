@@ -5,7 +5,11 @@
 }
 
 <ul class="nav-link-list nav-second-link-list">
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" asp-controller="" asp-action="">Favorite</a></li>
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
+        asp-controller="Book" asp-action="Index" id="Favorite">Search</a></li>
+
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
+        asp-controller="Book" asp-action="FavoriteBooks">Favorite</a></li>
 </ul>
 
 <form class="search-form" asp-controller="Book" asp-action="Search" method="get">

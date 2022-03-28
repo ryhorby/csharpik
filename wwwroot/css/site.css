@@ -16,12 +16,12 @@ header {
     padding: 0 1em;
     border-bottom: 1px solid #646464;
 }
-
 main {
     display: flex;
     flex-direction: column;
     min-height: calc(100% - 3em - 4em);
     max-height: fit-content;
+    -moz-fit-content: fit-content;
 }
 
 a{
@@ -57,6 +57,10 @@ button:hover {
     padding: 1rem 1rem 1rem 1rem;
 }
 
+#Favorite {
+    color: darkorange;
+}
+
 .footer-powered-text {
     text-align: right;
     margin-left: 0.5em;
@@ -66,10 +70,6 @@ button:hover {
     color: darkorange;
 }
 
-
-.div-description{
-    text-align: center;
-}
 .description-picture {
     width: 20em;
     float: left;
@@ -117,7 +117,6 @@ button:hover {
 }
 
 .read-book-button {
-    float: left;
     margin-top: 1em;
 }
 
