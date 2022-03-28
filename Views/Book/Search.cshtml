@@ -4,6 +4,10 @@
     ViewData["Title"] = "Books";
 }
 
+<ul class="nav-link-list nav-second-link-list">
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" asp-controller="" asp-action="">Favorite</a></li>
+</ul>
+
 <form class="search-form" asp-controller="Book" asp-action="Search" method="get">
     <input class="search-input" type="search" placeholder="Book or author name" name="query" value="" autocomplete="off" />
     <button class="search-button" type="submit"><img src="~/search.png"></button>
