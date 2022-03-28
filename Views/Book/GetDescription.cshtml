@@ -1,5 +1,13 @@
 ﻿@model DescriptionModel;
 
+@{
+    ViewData["Title"] = @Model.Book.Title != null ? Model.Book.Title : "Description";
+}
+
+<ul class="nav-link-list nav-second-link-list">
+    <li class="nav-link-list-li"><a class="nav-link nav-second-link" asp-controller="" asp-action="">Favorite</a></li>
+</ul>
+
 @if (@Model == null)
 {
     <div class="text-book-wasnt-found">
@@ -17,8 +25,7 @@ else
             <li class="li-description">
                 @if (@Model.Book.Title != null)
                 {
-                    <span class="orange-text">Title: </span>
-                    @Model.Book.Title
+                    <span class="orange-text">Title: </span>@Model.Book.Title
                 }
             </li>
 
