@@ -11,10 +11,17 @@ namespace csharpik.Controllers
             return View();
         }
 
+        [Route("Home/Error")]
+        [Route("Home/Error/{code?}")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int? code)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if(code != null)
+                ViewData["Error"] = code.ToString();
+
+            ErrorViewModel error = new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier };
+            
+            return View(error); 
         }
     }
 }

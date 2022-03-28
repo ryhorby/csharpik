@@ -4,10 +4,18 @@
     ViewData["Title"] = "Error";
 }
 <div class="home-development-message">
-    <h1 class="orange-text">Oops!</h1> 
+    @if(ViewData["Error"] != null)
+    {
+        <h1 class="orange-text">@ViewData["Error"]</h1>
+    }
+    else
+    {
+        <h1 class="orange-text">Oops!</h1>
+    }
+
     <h3 style="margin-top: 1.5em;">Don`t worry!. I will try to solve this problem as soon as possible, if you help me.</h3><br>
-        If it possible send me your steps before face with it on email <a href="mailto:ryhor.by@outlook.com" class="a-orange">ryhor.by@outlook.com</a><br>
-        Thanks a lot!
+    If it possible send me your steps before you face with it on email <a href="mailto:ryhor.by@outlook.com" class="a-orange">ryhor.by@outlook.com</a><br>
+    Thanks a lot!
 </div>
 
 @if (Model.ShowRequestId)
