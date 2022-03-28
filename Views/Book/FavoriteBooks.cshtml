@@ -3,13 +3,68 @@
 }
 
 <ul class="nav-link-list nav-second-link-list">
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
-        asp-controller="Book" asp-action="Index">Search</a></li>
+    <li class="nav-link-list-li">
+        <a class="nav-link nav-second-link"
+           asp-controller="Book" asp-action="Index">Search</a>
+    </li>
 
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
-        asp-controller="Book" asp-action="FavoriteBooks" id="Favorite">Favorite</a></li>
+    <li class="nav-link-list-li">
+        <a class="nav-link nav-second-link"
+           asp-controller="Book" asp-action="FavoriteBooks" id="Favorite">Favorite</a>
+    </li>
 </ul>
 
-<div class = "home-development-message">
-    <h1 class="orange-text">Favorite books</h1>
-</div>
+<div class="favorite-books-field"></div>
+
+
+<script type="text/javascript">
+
+    function funonload() {
+        const BookList = document.getElementsByClassName("favorite-books-field")[0];
+        let count = 0;
+
+        console.log(BookList);
+
+        if(localStorage.length > 0){
+            for(let i = 0; i < localStorage.length; i++){
+
+                const key = localStorage.key(i);
+
+                if (key.split("/")[0] == "book"){
+                    const bookTitle = key.split("/")[1];
+
+                    const bookId = key.split("/")[2];
+                    
+                    const bookDescription = localStorage.getItem(key);
+
+                    BookList.innerHTML += `
+                            <ul class="book-list">
+                                <li class="book-title-li"><span class="book-li-text">Book: </span>
+                                        <a href="GetDescription?id=${bookId}">${bookTitle}</a>
+                                 </li>
+                                 <li class="li-description">
+                                    <div>
+                                    <span class="orange-text">Description: </span>
+                                    </div>
+                                    <div>
+                                    ${bookDescription}
+                                    </div>
+                                </li>
+                            </ul>`;
+                    
+                    count++;
+                }
+            }
+
+            if(count == 0){
+                BookList.innerHTML = `No one book was added`;
+            }
+        }
+        else {
+            BookList.innerHTML = `No one book was added`;
+        }
+    }
+
+    funonload();
+
+</script>
