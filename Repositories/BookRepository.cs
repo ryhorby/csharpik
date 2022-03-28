@@ -1,6 +1,5 @@
 ﻿using csharpik.Data.BookProjectData;
 using csharpik.Models.BookProject;
-using System.Diagnostics;
 
 namespace csharpik.Repositories
 {

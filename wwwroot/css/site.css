@@ -132,7 +132,14 @@ button:hover {
     margin-left: 1em;
 }
 
+.description-title{
+    margin-top: 1em;
+}
 
+.description-text {
+    margin-left: 2em;
+    margin-right: 2em;
+}
 /*Search form*/
 .search-form {
     position: relative;
@@ -288,5 +295,9 @@ input[type="search"]::-webkit-search-results-decoration {
     }
     .read-book-button {
         margin-left: 2em;
+    }
+    .description-text {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
