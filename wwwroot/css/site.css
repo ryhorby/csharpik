@@ -16,12 +16,15 @@ header {
     padding: 0 1em;
     border-bottom: 1px solid #646464;
 }
-
+#Favorite{
+    color: darkorange;
+}
 main {
     display: flex;
     flex-direction: column;
     min-height: calc(100% - 3em - 4em);
     max-height: fit-content;
+    -moz-fit-content: fit-content;
 }
 
 a{

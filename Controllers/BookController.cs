@@ -35,5 +35,10 @@ namespace csharpik.Controllers
             string bookFilePass = service.GetBookPdfPass(pass);
             return PhysicalFile(bookFilePass, "application/pdf");
         }
+
+        public IActionResult FavoriteBooks()
+        {
+            return View();
+        }
     }
 }
