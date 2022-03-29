@@ -5,11 +5,15 @@
 }
 
 <ul class="nav-link-list nav-second-link-list">
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
-        asp-controller="Book" asp-action="Index" id="Favorite">Search</a></li>
+    <li class="nav-link-list-li">
+        <a class="nav-link nav-second-link"
+           asp-controller="Book" asp-action="Index" id="Favorite">Search</a>
+    </li>
 
-    <li class="nav-link-list-li"><a class="nav-link nav-second-link" 
-        asp-controller="Book" asp-action="FavoriteBooks">Favorite</a></li>
+    <li class="nav-link-list-li">
+        <a class="nav-link nav-second-link"
+           asp-controller="Book" asp-action="FavoriteBooks">Favorite</a>
+    </li>
 </ul>
 
 @if (@Model == null)
@@ -29,7 +33,9 @@ else
             <li class="li-description">
                 @if (@Model.Book.Title != null)
                 {
-                    <span class="orange-text">Title: </span>@Model.Book.Title
+                    <span class="orange-text">Title: </span>
+
+                    @Model.Book.Title
                 }
             </li>
 
@@ -52,25 +58,26 @@ else
                 </li>
             }
         </ul>
+        <div class="description-text">
+            @if (@Model.Book.IsFree && @Model.Keeper.PdfFileName != null)
+            {
+                <form asp-controller="Book" asp-action="ReadBook" method="get">
+                    <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
+                    <button class="a-orange read-book-button" type="submit">Read book</button>
+                </form>
+            }
+            else
+            {
+                <p class="book-not-free-message">&#9888 This book isn`t free, you can buy it on the Internet</p>
+            }
 
-        @if (@Model.Book.IsFree && @Model.Keeper.PdfFileName != null)
-        {
-            <form asp-controller="Book" asp-action="ReadBook" method="get">
-                <input type="hidden" name="pass" value="@Model.Keeper.PdfFileName">
-                <button class="a-orange read-book-button" type="submit">Read book</button>
-            </form>
-        }
-        else
-        {
-            <p class="book-not-free-message">&#9888 This book isn`t free, you can buy it on the Internet</p>
-        }
-
-        <button type="button" id="btn-insert" onclick = "Click()" class="read-book-button a-orange">Add to favorite</button>
+            <button type="button" id="btn-insert" onclick="Click()" class="a-orange read-book-button">Add to favorite</button>
+        </div>
     </div>
 
     //working with localStorage
-    <script type = "text/javascript">
-        
+    <script type="text/javascript">
+
         function funonload() {
             const btn = document.getElementById("btn-insert");
 
@@ -78,11 +85,11 @@ else
                  btn.innerHTML = "Remove from favorite"
             }
 
-        } 
+        }
 
         window.onload = funonload;
 
-        
+
         const inpKey = "book/@Model.Book.Title/@Model.Book.Id";
         const inpValue = "@Model.Book.Description";
 

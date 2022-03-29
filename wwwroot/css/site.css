@@ -196,14 +196,13 @@ button:hover {
 
 .book-li-text {
     color: darkorange;
-
 }
+
 
 .book-not-free-message{
     text-align: left;
     margin-top: 2em;
     color: darkorange;
-    margin-left: 2em;
 }
 /*Book wasn`t found in database message*/
 .text-book-wasnt-found {
