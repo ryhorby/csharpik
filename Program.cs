@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //DbSet
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = builder.Configuration["DefaultConnection"];
+
 builder.Services.AddDbContext<BookProjectContext>(
     options => options.UseSqlServer(connectionString)
     );
