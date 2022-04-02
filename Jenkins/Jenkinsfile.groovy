@@ -4,5 +4,9 @@ node{
 			cleanWs()
 			checkout scm
 		}
+
+		stage("Hello world"){
+			echo 'Hello world!'
+		}
 	}
 }
