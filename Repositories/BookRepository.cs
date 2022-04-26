@@ -20,44 +20,47 @@ namespace csharpik.Repositories
 
         }
 
-        public List<Book> GetAllBookByAuthor(string authorName)
+        public List<Book> GetAllBookByAuthorName(string authorName)
         {
 
-            List<Author> authors = Context.Authors.Where(author => author.Name.Contains(authorName)).ToList();
-            List<Book> books = new List<Book>();
+            Author author = Context.Authors.Single(a => a.Name.Contains(authorName));
+            
+            if (author == null)
+                return new List<Book>();
 
-            if (authors.Count == 0)
-                return books;
+            author.Books = Context.Books.Where(book => book.Author.Id == author.Id).ToList();
 
-            foreach (Author author in authors)
-            {
-                books = Context.Books.Where(book => book.AuthorId == author.Id).ToList();
-            }
-
-            return books;
+            return author.Books;
         }
 
-        public List<Book> GetAll()
+        public List<Book> GetAllBooks()
         {
-            return Context.Books.ToList();
+            List<Book> books = Context.Books.ToList();
+            
+            return books;
         }
 
         public Book GetBookById(int id)
         {
-            return Context.Books.Single(b => b.Id == id);
+            Book book = Context.Books.Single(b => b.Id == id);
+            return book;
         }
 
         public Author GetAuthorByBookId(int id)
         {
             Book book = Context.Books.Single(b => b.Id == id);
 
-            return Context.Authors.Single(a => a.Id == book.AuthorId);
+            book.Author = Context.Authors.Single(a => a.Id == book.AuthorId);
+
+            return book.Author;
 
         }
 
-        public BookNameKeeper GetBookKeeperByBookId(int id)
+        public BookUrlKeeper GetBookKeeperByBookId(int id)
         {
-            return Context.UrlKeepers.Single(a => a.BookId == id);
+            BookUrlKeeper urlKeeper = Context.UrlKeepers.Single(u => u.BookId == id);
+            
+            return urlKeeper;
         }
     }
 }

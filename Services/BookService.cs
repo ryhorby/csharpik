@@ -22,7 +22,7 @@ namespace csharpik.Services
         {
             List<Book> books = new List<Book>();
 
-            books.AddRange(bookRepository.GetAllBookByAuthor(query));
+            books.AddRange(bookRepository.GetAllBookByAuthorName(query));
             books.AddRange(bookRepository.GetAllBookByTitle(query));
 
             List<int> bookIds = new List<int>();
@@ -41,7 +41,7 @@ namespace csharpik.Services
 
         public List<Book> GetAll()
         {
-            return bookRepository.GetAll();
+            return bookRepository.GetAllBooks();
         }
 
         public DescriptionModel GetDescription(int id)

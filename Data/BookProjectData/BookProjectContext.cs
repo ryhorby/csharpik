@@ -13,6 +13,6 @@ namespace csharpik.Data.BookProjectData
 
         public DbSet<Author> Authors { get; set; }
 
-        public DbSet<BookNameKeeper> UrlKeepers { get; set; }
+        public DbSet<BookUrlKeeper> UrlKeepers { get; set; }
     }
 }

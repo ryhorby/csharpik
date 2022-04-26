@@ -6,6 +6,6 @@
 
         public Author BookAuthor { get; set; }
 
-        public BookNameKeeper Keeper { get; set; } 
+        public BookUrlKeeper Keeper { get; set; } 
     }
 }

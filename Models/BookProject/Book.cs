@@ -9,15 +9,18 @@ namespace csharpik.Models.BookProject
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string Title { get; set; }
 
         [Required]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         [Required]
         public bool IsFree { get; set; }
 
-        public int? AuthorId { get; set; }
-
+        [ForeignKey("Author")]
+        public int AuthorId { get; set; }
+        public Author Author { get; set; }
     }
 }
